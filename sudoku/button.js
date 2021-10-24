@@ -2,7 +2,7 @@ class Button {
   constructor() {
     this.radius = 25;
     this.pos = {};
-    this.color = "white";
+    this.color = [255, 255, 255];
     this.mousedOver = false;
     this.selected = false;
   }
@@ -18,11 +18,11 @@ class Button {
 
   changeColor() {
     if (this.mousedOver) {
-      this.color = "blue";
+      this.color = [30, 130, 10];
     } else if (this.selected) {
-      this.color = "green";
+      this.color = [70, 170, 50];
     } else {
-      this.color = "white";
+      this.color = [255, 255, 255];
     }
   }
 }
@@ -68,8 +68,7 @@ class NumButton extends Button {
   }
 
   toggleNumButton() {
-    let d = dist(this.pos.x, this.pos.y, mouseX, mouseY);
-    if (d < this.radius) {
+    if (this.mousedOver) {
       if (buttonSelected != this.number) {
         buttonSelected = this.number;
       } else {
@@ -107,8 +106,7 @@ class UtilButton extends Button {
   }
 
   utilButtonClicked() {
-    let d = dist(this.pos.x, this.pos.y, mouseX, mouseY);
-    if (d < this.radius) {
+    if (this.mousedOver) {
       return this.type;
     }
   }

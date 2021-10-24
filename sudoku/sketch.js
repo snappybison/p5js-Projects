@@ -27,11 +27,14 @@ function draw() {
   board.drawLines();
   board.displayCells();
   for (let i = 0; i < 9; i++) {
+    numButtons[i].checkIfMousedOver();
     numButtons[i].checkIfSelected();
     numButtons[i].changeColor();
     numButtons[i].drawNumButton(i, board);
   }
   for (let i = 0; i < utilButtons.length; i++) {
+    utilButtons[i].checkIfMousedOver();
+    utilButtons[i].changeColor();
     utilButtons[i].drawUtilButton();
   }
 }
@@ -78,4 +81,4 @@ document.oncontextmenu = function () {
   if (mouseX < width && mouseY < height) {
     return false;
   }
-};
+}
